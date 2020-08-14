@@ -14,7 +14,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return redirect('/login');
 });
 
 Auth::routes();
@@ -31,4 +31,7 @@ Route::get('/conhecimento/novo', 'ConhecimentoController@index')->name('conhecim
 
 Route::post('/conhecimento/novo', 'ConhecimentoController@store')->name('incluirconhecimento');
 
-Route::get('/consulta/conhecimentos', 'ConsultaConhecimentosController@index')->name('consultaconhecimentos');
+Route::get('/conhecimento/{id}', 'ConhecimentoController@view')->name('verconhecimento');
+Route::get('/conhecimento/editar/{id}', 'ConhecimentoController@edit')->name('editarconhecimento');
+
+Route::get('/consulta/conhecimentos', 'ConsultaConhecimentoController@index')->name('consultaconhecimentos');

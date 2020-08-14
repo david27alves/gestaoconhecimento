@@ -23,7 +23,7 @@
 <div class="row justify-content-center">
 <div class="col-md-8">
     <div class="card">
-        <div class="card-header">Cadastrar Conhecimento</div>
+        <div class="card-header">Editar Conhecimento</div>
         <div class="card-body">
             <form method="POST" action="{{ route('incluirconhecimento') }}">
                 @csrf
@@ -34,9 +34,9 @@
                 <div class="form-group">
                     <label for="categoria">Categoria</label>
                     <select class="form-control" id="categoria" name='id_categoria'>
-                    @foreach($categorias as $categoria)
-                        <option value="{{$categoria->id}}">{{$categoria->descricao}}</option>
-                    @endforeach
+                    
+                        <option value="#">{{$categoria}}</option>
+                    
                     </select>
                 </div>
 

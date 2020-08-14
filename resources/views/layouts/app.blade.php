@@ -18,12 +18,25 @@
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+
+    
+<script src="https://cdn.tiny.cloud/1/9u68h2jnfjalzocarksoc5nhogpp04blypkiowzcwcfsfijm/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script>
+
+<script>
+    tinymce.init({
+      selector: 'textarea#descricao',
+      menubar: false,
+      plugins: 'image link',
+      toolbar: 'undo redo | bold italic underline strikethrough | alignleft aligncenter alignright alignjustify | outdent indent |  numlist bullist checklist | forecolor backcolor casechange permanentpen formatpainter removeformat | image link',
+      toolbar_mode: 'floating',
+    });
+  </script>
 </head>
 <body>
     <div id="app">
         <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
             <div class="container">
-                <a class="navbar-brand" href="{{ url('/') }}">
+                <a class="navbar-brand" href="{{ url('/home') }}">
                     {{ config('app.name', 'Laravel') }}
                 </a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
@@ -49,10 +62,13 @@
                                 </li>
                             @endif
                         @else
-                        <form class="form-inline my-2 my-lg-0">
-                            <input class="form-control mr-sm-2" type="search" placeholder="Buscar" aria-label="Search">
-                        
+                        <form class="form-inline my-2 my-lg-0" action="{{ route('consultaconhecimentos') }}">
+                        <div class="form-group mx-sm-3 mb-2">
+                            <input class="form-control" type="search" placeholder="Buscar" aria-label="Search" name="titulo">
+                           </div>
+                            <button type="submit" class="btn btn-primary mb-2 ">Buscar</button>
                         </form>
+
                             <li class="nav-item dropdown">
                                 <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                                     {{ Auth::user()->name }} <span class="caret"></span>
@@ -76,7 +92,7 @@
                                         {{ __('Categorias') }}
                                     </a>
 
-                                    <a class="dropdown-item" href="{{ route('categoria') }}">
+                                    <a class="dropdown-item" href="{{ route('home') }}">
                                         {{ __('Clientes') }}
                                     </a>
 
