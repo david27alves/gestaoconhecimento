@@ -27,7 +27,7 @@ class HomeController extends Controller
     public function index()
     {
         $categorias = Categoria::all()->sortBy('id');
-        $conhecimentos = Conhecimento::all()->sortBy('id');
+        $conhecimentos = Conhecimento::all()->sortByDesc('id');
         return view('home', ['categorias' => $categorias], ['conhecimentos' => $conhecimentos]);
     }
 }

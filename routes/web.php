@@ -31,3 +31,4 @@ Route::get('/conhecimento/novo', 'ConhecimentoController@index')->name('conhecim
 
 Route::post('/conhecimento/novo', 'ConhecimentoController@store')->name('incluirconhecimento');
 
+Route::get('/conhecimento/{id}', 'ConhecimentoController@edit')->name('verconhecimento');

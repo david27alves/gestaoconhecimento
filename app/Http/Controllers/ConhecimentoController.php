@@ -22,4 +22,9 @@ class ConhecimentoController extends Controller
         Conhecimento::create($request->all());
         return back()->withErrors(['success' => 'Cadastrado com sucesso!']);
     }
+
+    public function edit(Request $request, $id) {
+        $conhecimento = Conhecimento::find($id);
+        return view('visializarconhecimento', ['conhecimento' => $conhecimento]);
+    }
 }
