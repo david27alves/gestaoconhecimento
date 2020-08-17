@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use App\Categoria;
 use App\Conhecimento;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
+
 
 class ConhecimentoController extends Controller
 {
@@ -12,9 +14,10 @@ class ConhecimentoController extends Controller
         $this->middleware('auth');
     }
 
-    public function index() {
-        $categorias = Conhecimento::all()->sortBy('id');
-        return $categorias;
+    public function index(Request $request, $id) {
+        //$categorias = Conhecimento::all()->sortBy('id');
+        $conhecimentos = DB::table('conhecimentos')->whereIn('id_categoria', (array)$id)->get();
+        return view('conhecimentoporcategoria', ['cons' => $conhecimentos]);
     }
 
     public function create() {
