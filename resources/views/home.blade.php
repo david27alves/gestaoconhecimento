@@ -8,7 +8,8 @@
     <div class="col-md-3">
         <div class="list-group">
             @foreach ($categorias as $categoria)
-            <button type="button" class="list-group-item list-group-item-action">{{ $categoria->descricao }}</button>
+            <a href="conhecimento/categoria/{{ $categoria->id }}" class="list-group-item list-group-item-action">{{ $categoria->descricao }}</a>
+            
             @endforeach
         </div>
     </div>

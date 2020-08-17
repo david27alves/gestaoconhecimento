@@ -13,6 +13,11 @@ class ConhecimentoController extends Controller
     }
 
     public function index() {
+        $categorias = Conhecimento::all()->sortBy('id');
+        return $categorias;
+    }
+
+    public function create() {
         $categorias = Categoria::all()->sortBy('id');
         return view('novoconhecimento', ['categorias' => $categorias]);
     }
@@ -23,7 +28,7 @@ class ConhecimentoController extends Controller
         return back()->withErrors(['success' => 'Cadastrado com sucesso!']);
     }
 
-    public function view(Request $request, $id) {
+    public function show(Request $request, $id) {
         $conhecimento = Conhecimento::find($id);
         return view('visializarconhecimento', ['conhecimento' => $conhecimento]);
     }

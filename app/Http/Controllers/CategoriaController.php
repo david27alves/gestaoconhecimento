@@ -6,7 +6,7 @@ use App\Categoria;
 
 use Illuminate\Http\Request;
 
-class NovaCategoriaController extends Controller
+class CategoriaController extends Controller
 {
 
     public function __construct() {

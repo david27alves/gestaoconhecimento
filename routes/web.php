@@ -24,14 +24,17 @@ Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/categoria', function (){
     return view('novacategoria');
 })->name('categoria');
-Route::get('/categoria/novo', 'NovaCategoriaController@index');
-Route::post('/categoria/novo', 'NovaCategoriaController@store')->name('incluircategoria');
+Route::get('/categoria/novo', 'CategoriaController@index');
+Route::post('/categoria/novo', 'CategoriaController@store')->name('incluircategoria');
 
-Route::get('/conhecimento/novo', 'ConhecimentoController@index')->name('conhecimento');
-
+Route::get('/conhecimento', 'ConhecimentoController@index');
+Route::get('/conhecimento/novo', 'ConhecimentoController@create')->name('conhecimento');
 Route::post('/conhecimento/novo', 'ConhecimentoController@store')->name('incluirconhecimento');
 
-Route::get('/conhecimento/{id}', 'ConhecimentoController@view')->name('verconhecimento');
+Route::get('/conhecimento/{id}', 'ConhecimentoController@show')->name('verconhecimento');
 Route::get('/conhecimento/editar/{id}', 'ConhecimentoController@edit')->name('editarconhecimento');
 
 Route::get('/consulta/conhecimentos', 'ConsultaConhecimentoController@index')->name('consultaconhecimentos');
+
+Route::get('/conhecimento/categoria/{id}', 'ConhecimentoController@index');
+
