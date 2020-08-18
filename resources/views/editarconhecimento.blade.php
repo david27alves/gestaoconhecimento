@@ -29,13 +29,13 @@
                 @csrf
                 <div class="form-group">
                     <label for="titulo">Título</label>
-                    <input type="text" class="form-control" id="titulo" name="titulo">
+                    <input type="text" class="form-control" id="titulo" name="titulo" value="{{$conhecimento->titulo}}">
                 </div>
                 <div class="form-group">
                     <label for="categoria">Categoria</label>
                     <select class="form-control" id="categoria" name='id_categoria'>
                     
-                        <option value="#">{{$categoria}}</option>
+                        <option value="{{$categoria}}">{{$categoria}}</option>
                     
                     </select>
                 </div>
@@ -43,7 +43,7 @@
                 <div class="form-group">
                     <label for="descricao">Descrição</label>
                     <!--<textarea class="form-control" id="descricao" rows="7" name="descricao"></textarea>-->
-                    <textarea id="descricao" rows="20" name="descricao"></textarea>
+                    <textarea id="descricao" rows="20" name="descricao">{{$conhecimento->descricao}}</textarea>
                 </div>
 
                 <div class="form-group">

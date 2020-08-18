@@ -2,8 +2,16 @@
 
 @section('content')
 
+<div class="container">
+    <div class="row justify-content-center">
 
-
+    <div class="col-md-3">
+        <div class="list-group">
+            @foreach ($categs as $categ)
+                <a href="{{ $categ->id }}" class="list-group-item list-group-item-action {{ request()->is('/conhecimento/categoria/') ? 'active' : ''}}">{{ $categ->descricao }}</a>
+            @endforeach
+        </div>
+    </div>
 
     <div class="col-md-9">
         <div class="card">
@@ -13,7 +21,7 @@
                     <path d="M5.5 12a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0z"/>
                     <path fill-rule="evenodd" d="M2.5 3.5a1 1 0 0 1 1-1c5.523 0 10 4.477 10 10a1 1 0 1 1-2 0 8 8 0 0 0-8-8 1 1 0 0 1-1-1zm0 4a1 1 0 0 1 1-1 6 6 0 0 1 6 6 1 1 0 1 1-2 0 4 4 0 0 0-4-4 1 1 0 0 1-1-1z"/>
                 </svg>
-                {{ __(' Recentes') }}</div>
+                {{ 'Conhecimentos' }}</div>
 
                 <ul class="list-group list-group-flush">
                     @foreach ($cons as $conhecimento)
@@ -25,6 +33,7 @@
         </div>        
     </div>
 
-
+    </div>        
+    </div>
 
 @endsection

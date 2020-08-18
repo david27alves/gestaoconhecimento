@@ -10,14 +10,18 @@ use Illuminate\Support\Facades\DB;
 
 class ConhecimentoController extends Controller
 {
+
+
     public function __construct() {
         $this->middleware('auth');
     }
 
     public function index(Request $request, $id) {
-        //$categorias = Conhecimento::all()->sortBy('id');
+        $categs = Categoria::all()->sortBy('id');
         $conhecimentos = DB::table('conhecimentos')->whereIn('id_categoria', (array)$id)->get();
-        return view('conhecimentoporcategoria', ['cons' => $conhecimentos]);
+        $CatSelecionada = DB::table('categorias')->whereIn('id', (array)$id)->get();
+        return view('conhecimentoporcategoria', ['categs' => $categs], ['cons' => $conhecimentos], ['CatSelec' => $CatSelecionada]);
+        //return $cats;
     }
 
     public function create() {
