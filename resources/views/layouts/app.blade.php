@@ -88,7 +88,7 @@
                                         {{ __('Conhecimentos') }}
                                     </a>
 
-                                    <a class="dropdown-item" href="{{ route('categoria') }}">
+                                    <a class="dropdown-item" href="{{ route('categorias') }}">
                                         {{ __('Categorias') }}
                                     </a>
 

@@ -6,6 +6,7 @@ use App\Categoria;
 use App\Conhecimento;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class HomeController extends Controller
 {
@@ -28,6 +29,10 @@ class HomeController extends Controller
     {
         $categorias = Categoria::all()->sortBy('id');
         $conhecimentos = Conhecimento::all()->sortByDesc('id');
-        return view('home', ['categorias' => $categorias], ['conhecimentos' => $conhecimentos]);
+        $CatConhecimento = DB::table('conhecimentos')
+                                  ->join('categorias', 'conhecimentos.id_categoria', '=', 'categorias.id')
+                                  ->select('categorias', 'conhecimentos.*')->get();
+        //return view('home', ['categorias' => $categorias], ['conhecimentos' => $conhecimentos]);
+        return $CatConhecimento;
     }
 }

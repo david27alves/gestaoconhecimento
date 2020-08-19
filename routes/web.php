@@ -21,9 +21,9 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 
-Route::get('/categoria', function (){
+Route::get('/categorias', function (){
     return view('novacategoria');
-})->name('categoria');
+})->name('categorias');
 Route::get('/categoria/novo', 'CategoriaController@index');
 Route::post('/categoria/novo', 'CategoriaController@store')->name('incluircategoria');
 
