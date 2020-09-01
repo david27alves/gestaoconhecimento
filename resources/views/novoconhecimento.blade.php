@@ -42,9 +42,10 @@
 
                 <div class="form-group">
                     <label for="descricao">Descrição</label>
-                    <!--<textarea class="form-control" id="descricao" rows="7" name="descricao"></textarea>-->
                     <textarea id="descricao" rows="20" name="descricao"></textarea>
                 </div>
+
+                <input type="hidden" id="usuario" name="id_usuario" value="{{ auth()->user()->id }}">
 
                 <div class="form-group">
                     <label for="anexos">Anexos</label>

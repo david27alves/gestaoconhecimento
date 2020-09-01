@@ -11,38 +11,55 @@ use Illuminate\Support\Facades\DB;
 class ConhecimentoController extends Controller
 {
 
+    public function __construct() 
+    {
 
-    public function __construct() {
         $this->middleware('auth');
+
     }
 
-    public function index(Request $request, $id) {
+    public function index(Request $request, $id) 
+    {
+
         $categs = Categoria::all()->sortBy('id');
-        $conhecimentos = DB::table('conhecimentos')->whereIn('id_categoria', (array)$id)->get();
         $CatSelecionada = DB::table('categorias')->whereIn('id', (array)$id)->get();
+        $conhecimentos = Conhecimento::with('categoria')->whereIn('id_categoria', (array)$id)->get();
+        
         return view('conhecimentoporcategoria', ['categs' => $categs], ['cons' => $conhecimentos], ['CatSelec' => $CatSelecionada]);
-        //return $cats;
+
     }
 
-    public function create() {
+    public function create() 
+    {
+
         $categorias = Categoria::all()->sortBy('id');
+        
         return view('novoconhecimento', ['categorias' => $categorias]);
     }
 
-    public function store(Request $request) {
+    public function store(Request $request) 
+    {
 
         Conhecimento::create($request->all());
+        
         return back()->withErrors(['success' => 'Cadastrado com sucesso!']);
     }
 
-    public function show(Request $request, $id) {
-        $conhecimento = Conhecimento::find($id);
+    public function show(Request $request, $id) 
+    {
+;
+        $conhecimento = Conhecimento::with('categoria')->whereIn('id', (array)$id)->get();
+        
         return view('visializarconhecimento', ['conhecimento' => $conhecimento]);
+
     }
 
-    public function edit(Request $response, $id) {
-        $conhecimento = Conhecimento::find($id);
-        $categoria = $conhecimento->id_categoria;
+    public function edit(Request $response, $id) 
+    {
+
+        $conhecimento = Conhecimento::with('categoria')->whereIn('id', (array)$id)->get();
+        $categoria = $conhecimento[0]->categoria->descricao;
+ 
         return view('editarconhecimento', ['conhecimento' => $conhecimento], ['categoria' => $categoria]);
     }
 }

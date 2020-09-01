@@ -33,6 +33,7 @@ Route::post('/conhecimento/novo', 'ConhecimentoController@store')->name('incluir
 
 Route::get('/conhecimento/{id}', 'ConhecimentoController@show')->name('verconhecimento');
 Route::get('/conhecimento/editar/{id}', 'ConhecimentoController@edit')->name('editarconhecimento');
+//Route::post('/conhecimento/editar/{id}', 'ConhecimentoController@store')->name('editarconhecimentopersistir');
 
 Route::get('/consulta/conhecimentos', 'ConsultaConhecimentoController@index')->name('consultaconhecimentos');
 

@@ -20,6 +20,8 @@ class CreateConhecimentosTable extends Migration
             $table->string('anexos');
             $table->integer('id_categoria');
             $table->foreign('id_categoria')->references('id')->on('categorias');
+            $table->integer('id_usuario');
+            $table->foreign('id_usuario')->references('id')->on('users');
             $table->timestamps();
         });
     }

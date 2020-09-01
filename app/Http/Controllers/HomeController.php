@@ -28,11 +28,9 @@ class HomeController extends Controller
     public function index()
     {
         $categorias = Categoria::all()->sortBy('id');
-        $conhecimentos = Conhecimento::all()->sortByDesc('id');
-        $CatConhecimento = DB::table('conhecimentos')
-                                  ->join('categorias', 'conhecimentos.id_categoria', '=', 'categorias.id')
-                                  ->select('categorias', 'conhecimentos.*')->get();
-        //return view('home', ['categorias' => $categorias], ['conhecimentos' => $conhecimentos]);
-        return $CatConhecimento;
+        $conhecimentos = Conhecimento::with('categoria')->get();
+        
+        return view('home', ['categorias' => $categorias], ['conhecimentos' => $conhecimentos]);
+
     }
 }

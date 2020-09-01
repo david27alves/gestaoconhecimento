@@ -25,7 +25,7 @@
 
                 <ul class="list-group list-group-flush">
                     @foreach ($cons as $conhecimento)
-                        <li class="list-group-item"><a href="#" class="badge badge-success">{{$conhecimento->id_categoria}}</a> <a href="/conhecimento/{{$conhecimento->id}}">{{$conhecimento->titulo}}</a></li>
+                        <li class="list-group-item"><a href="#" class="badge badge-success">{{$conhecimento->categoria->descricao}}</a> <a href="/conhecimento/{{$conhecimento->id}}">{{$conhecimento->titulo}}</a></li>
                     @endforeach
                 </ul>
                 

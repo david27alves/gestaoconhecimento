@@ -29,7 +29,7 @@
                 @csrf
                 <div class="form-group">
                     <label for="titulo">Título</label>
-                    <input type="text" class="form-control" id="titulo" name="titulo" value="{{$conhecimento->titulo}}">
+                    <input type="text" class="form-control" id="titulo" name="titulo" value="{{$conhecimento[0]->titulo}}">
                 </div>
                 <div class="form-group">
                     <label for="categoria">Categoria</label>
@@ -43,7 +43,7 @@
                 <div class="form-group">
                     <label for="descricao">Descrição</label>
                     <!--<textarea class="form-control" id="descricao" rows="7" name="descricao"></textarea>-->
-                    <textarea id="descricao" rows="20" name="descricao">{{$conhecimento->descricao}}</textarea>
+                    <textarea id="descricao" rows="20" name="descricao">{{$conhecimento[0]->descricao}}</textarea>
                 </div>
 
                 <div class="form-group">
