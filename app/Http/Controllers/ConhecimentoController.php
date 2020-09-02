@@ -48,8 +48,8 @@ class ConhecimentoController extends Controller
     public function show(Request $request, $id) 
     {
 ;
-        $conhecimento = Conhecimento::with('categoria')->whereIn('id', (array)$id)->get();
-        
+        $conhecimento = Conhecimento::with('categoria', 'user')->whereIn('id', (array)$id)->get();
+        //return $conhecimento;
         return view('visializarconhecimento', ['conhecimento' => $conhecimento]);
 
     }
