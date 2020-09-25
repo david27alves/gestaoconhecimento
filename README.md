@@ -9,6 +9,10 @@ Gestão de conhecimento para colaboradores das organizações permitindo armazen
 - Armazene todo conhecimento gerado pela sua empresa.
 - Open Sourde, você pode baixar, redistribuir e melhorar.
 
+# Install
+
+Mais detlhes em breve.
+
 
 ## License
 
