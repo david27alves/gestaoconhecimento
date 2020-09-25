@@ -46,7 +46,7 @@ class ConhecimentoController extends Controller
         
         //return back()->withErrors(['success' => 'Cadastrado com sucesso!']);
 
-        return $request->anexos; 
+        return $request; 
     }
 
     public function show(Request $request, $id) 

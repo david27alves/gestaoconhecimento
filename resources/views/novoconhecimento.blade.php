@@ -25,7 +25,7 @@
     <div class="card">
         <div class="card-header">Cadastrar Conhecimento</div>
         <div class="card-body">
-            <form method="POST" enctype="multipart/form-data" action="{{ route('incluirconhecimento') }}">
+            <form method="POST" action="{{ route('incluirconhecimento') }}" enctype="multipart/form-data">
                 @csrf
                 <div class="form-group">
                     <label for="titulo">Título</label>
@@ -49,7 +49,7 @@
 
                 <div class="form-group">
                     <label for="anexos">Anexos</label>
-                    <input type="file" class="form-control-file" id="anexos" multiple name="anexos">
+                    <input type="file" class="form-control-file" name="anexos[]" multiple>
                 </div>
 
                 <button type="submit" class="btn btn-primary">Cadastrar</button>
