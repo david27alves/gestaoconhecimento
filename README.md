@@ -5,9 +5,13 @@
 
 Gestão de conhecimento para colaboradores das organizações permitindo armazenar e consultar de forma organizada e rápida todo conhecimento gerado pela companhia. 
 
-- Simples, fácil e organizado
-- Armazene todo conhecimento gerado pela sua empresa
-- Open Sourde, você pode baixar, redistribuir e melhorar
+- Simples, fácil e organizado.
+- Armazene todo conhecimento gerado pela sua empresa.
+- Open Sourde, você pode baixar, redistribuir e melhorar.
+
+## Install
+
+Mais detlhes em breve.
 
 
 ## License
