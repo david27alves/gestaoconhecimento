@@ -6,7 +6,7 @@ use App\Categoria;
 use App\Conhecimento;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
-
+use Illuminate\Support\Facades\Hash;
 
 class ConhecimentoController extends Controller
 {
@@ -40,14 +40,18 @@ class ConhecimentoController extends Controller
     public function store(Request $request) 
     {
 
-        Conhecimento::create($request->all());
+        //Conhecimento::create($request->all());
+
+        $hashanexo = $request->anexos;
         
-        return back()->withErrors(['success' => 'Cadastrado com sucesso!']);
+        //return back()->withErrors(['success' => 'Cadastrado com sucesso!']);
+
+        return $request->anexos; 
     }
 
     public function show(Request $request, $id) 
     {
-;
+
         $conhecimento = Conhecimento::with('categoria', 'user')->whereIn('id', (array)$id)->get();
         //return $conhecimento;
         return view('visializarconhecimento', ['conhecimento' => $conhecimento]);

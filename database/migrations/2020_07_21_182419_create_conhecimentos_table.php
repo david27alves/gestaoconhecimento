@@ -17,7 +17,8 @@ class CreateConhecimentosTable extends Migration
             $table->id();
             $table->string('titulo', 255);
             $table->text('descricao');
-            $table->string('anexos');
+            $table->string('anexos')->nullable(true);
+            $table->string('hashanexos')->nullable(true);
             $table->integer('id_categoria');
             $table->foreign('id_categoria')->references('id')->on('categorias');
             $table->integer('id_usuario');

@@ -25,7 +25,7 @@
     <div class="card">
         <div class="card-header">Cadastrar Conhecimento</div>
         <div class="card-body">
-            <form method="POST" action="{{ route('incluirconhecimento') }}">
+            <form method="POST" enctype="multipart/form-data" action="{{ route('incluirconhecimento') }}">
                 @csrf
                 <div class="form-group">
                     <label for="titulo">Título</label>
