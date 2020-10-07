@@ -40,13 +40,13 @@ class ConhecimentoController extends Controller
     public function store(Request $request) 
     {
 
-        //Conhecimento::create($request->all());
+        Conhecimento::create($request->all());
 
-        $hashanexo = $request->anexos;
+        //$hashanexo = $request->anexos;
         
-        //return back()->withErrors(['success' => 'Cadastrado com sucesso!']);
+        return back()->withErrors(['success' => 'Cadastrado com sucesso!']);
 
-        return $request; 
+       // return $request; 
     }
 
     public function show(Request $request, $id) 
