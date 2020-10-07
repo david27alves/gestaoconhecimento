@@ -53,7 +53,7 @@ class ConhecimentoController extends Controller
     {
 
         $conhecimento = Conhecimento::with('categoria', 'user')->whereIn('id', (array)$id)->get();
-        //return $conhecimento;
+
         return view('visializarconhecimento', ['conhecimento' => $conhecimento]);
 
     }
@@ -62,8 +62,25 @@ class ConhecimentoController extends Controller
     {
 
         $conhecimento = Conhecimento::with('categoria')->whereIn('id', (array)$id)->get();
-        $categoria = $conhecimento[0]->categoria->descricao;
+        $categorias = Categoria::all()->sortBy('id');
+        //$id_categoria = $conhecimento[0]->categoria->id;
+        //$categoria = $conhecimento[0]->categoria->descricao;
+
+        //return $conhecimento[0]->categoria->id;
  
-        return view('editarconhecimento', ['conhecimento' => $conhecimento], ['categoria' => $categoria]);
+        return view('editarconhecimento', ['conhecimento' => $conhecimento], ['categorias' => $categorias]);
+    }
+
+    public function update(Request $response, $id) 
+    {
+        Conhecimento::find($id)->update($response->all());
+        return redirect('home');
+
+    }
+
+    public function destroy($id)
+    {
+        Conhecimento::find($id)->delete();
+        return redirect('home');
     }
 }

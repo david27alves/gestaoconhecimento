@@ -11,14 +11,15 @@
                     <h2 class="card-title">{{$conhecimento[0]->titulo}}</h2>
 
                     <div class="btn-group position-absolute" style="right: 10px; top: 10px;" role="group">
-                        <button id="" type="button" class="btn btn-outline-light " data-toggle="dropdown" style="border-radius: 100%; border: 1px solid silver; color: silver" >
+                        <button id="" type="button" class="btn" data-toggle="dropdown" >
                             <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-three-dots-vertical" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
                                 <path fill-rule="evenodd" d="M9.5 13a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0zm0-5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0zm0-5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0z"/>
                             </svg>
                         </button>
                         <div class="dropdown-menu" aria-labelledby="btnGroupDrop1">
-                        <a class="dropdown-item" href="/conhecimento/editar/{{$conhecimento[0]->id}}">Editar</a>
-                        <a class="dropdown-item" href="#">Compartilhar</a>
+                            <a class="dropdown-item" href="/conhecimento/editar/{{$conhecimento[0]->id}}">Editar</a>
+                            <a class="dropdown-item" href="#">Compartilhar</a>
+                            <a class="dropdown-item" href="/conhecimento/deletar/{{$conhecimento[0]->id}}">Excluir</a>
                         </div>
                     </div>
 

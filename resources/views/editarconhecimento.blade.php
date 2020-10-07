@@ -24,7 +24,7 @@
             <div class="card">
                 <div class="card-header">Editar Conhecimento</div>
                 <div class="card-body">
-                    <form method="POST" action="{{ route('editarconhecimentostore') }}">
+                    <form method="POST" action="{{ route('editarconhecimentostore', [$conhecimento[0]->id]) }}">
                         @csrf
                         <div class="form-group">
                             <label for="titulo">Título</label>
@@ -33,9 +33,15 @@
                         <div class="form-group">
                             <label for="categoria">Categoria</label>
                             <select class="form-control" id="categoria" name='id_categoria'>
-                            
-                                <option value="{{$categoria}}">{{$categoria}}</option>
-                            
+
+                                @foreach($categorias as $categoria)
+                                    @if($categoria->id == $conhecimento[0]->categoria->id)
+                                        <option selected="selected" value="{{$categoria->id}}">{{$categoria->descricao}}</option>
+                                    @else
+                                        <option value="{{$categoria->id}}">{{$categoria->descricao}}</option>
+                                    @endif
+                                @endforeach
+                                                            
                             </select>
                         </div>
 
@@ -50,7 +56,7 @@
                             <input type="file" class="form-control-file" id="anexos" multiple name="anexos">
                         </div>
 
-                        <button type="submit" class="btn btn-primary">Cadastrar</button>
+                        <button type="submit" class="btn btn-primary">Atualizar</button>
 
                     </form>
                 </div>
