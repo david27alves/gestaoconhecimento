@@ -42,11 +42,8 @@ class ConhecimentoController extends Controller
 
         Conhecimento::create($request->all());
 
-        //$hashanexo = $request->anexos;
-        
         return back()->withErrors(['success' => 'Cadastrado com sucesso!']);
 
-       // return $request; 
     }
 
     public function show(Request $request, $id) 
@@ -63,11 +60,7 @@ class ConhecimentoController extends Controller
 
         $conhecimento = Conhecimento::with('categoria')->whereIn('id', (array)$id)->get();
         $categorias = Categoria::all()->sortBy('id');
-        //$id_categoria = $conhecimento[0]->categoria->id;
-        //$categoria = $conhecimento[0]->categoria->descricao;
 
-        //return $conhecimento[0]->categoria->id;
- 
         return view('editarconhecimento', ['conhecimento' => $conhecimento], ['categorias' => $categorias]);
     }
 
@@ -75,7 +68,6 @@ class ConhecimentoController extends Controller
     {
         Conhecimento::find($id)->update($response->all());
         return redirect('home');
-
     }
 
     public function destroy($id)

@@ -19,7 +19,13 @@
                         <div class="dropdown-menu" aria-labelledby="btnGroupDrop1">
                             <a class="dropdown-item" href="/conhecimento/editar/{{$conhecimento[0]->id}}">Editar</a>
                             <a class="dropdown-item" href="#">Compartilhar</a>
-                            <a class="dropdown-item" href="/conhecimento/deletar/{{$conhecimento[0]->id}}">Excluir</a>
+                            
+                            @if(Auth::user()->id == $conhecimento[0]->user->id)
+                                <a class="dropdown-item" data-toggle="modal" data-target="#excluirconhecimento" href="#">Excluir</a>
+                                          
+                            @else
+                                <a class="dropdown-item disabled">Excluir</a>
+                            @endif
                         </div>
                     </div>
 
@@ -34,6 +40,7 @@
                         </div>
                     </h6>
                     <p class="card-text">{!! $conhecimento[0]->descricao !!}</p>
+
                 </div>
             </div>
             </br>
@@ -43,11 +50,33 @@
             <ul class="list-group">
                 <li class="list-group-item"><a href="#">{{$conhecimento[0]->anexos}}</a></li>
             </ul>
+
             </div>
             </div>
             
         </div>
     </div>
+</div>
+
+<!-- Modal -->
+<div class="modal fade" id="excluirconhecimento" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="staticBackdropLabel">Exclusão</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        Deseja realmente excluir esse conhecimento?
+      </div>
+      <div class="modal-footer">
+        <a class="btn btn-secondary" data-dismiss="modal" href="#">Cancelar</a>
+        <a class="btn btn-danger" href="/conhecimento/deletar/{{$conhecimento[0]->id}}">Excluir</a>
+      </div>
+    </div>
+  </div>
 </div>
 
 @endsection
