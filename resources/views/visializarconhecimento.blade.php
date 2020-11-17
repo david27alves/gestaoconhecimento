@@ -19,6 +19,7 @@
                         <div class="dropdown-menu" aria-labelledby="btnGroupDrop1">
                             <a class="dropdown-item" href="/conhecimento/editar/{{$conhecimento[0]->id}}">Editar</a>
                             <a class="dropdown-item" href="#">Compartilhar</a>
+                            <a class="dropdown-item disabled" href="#">Salvar PDF</a>
                             
                             @if(Auth::user()->id == $conhecimento[0]->user->id)
                                 <a class="dropdown-item" data-toggle="modal" data-target="#excluirconhecimento" href="#">Excluir</a>
@@ -44,17 +45,20 @@
                 </div>
             </div>
             </br>
-            <div class="card">
-            <div class="card-body">
-            <h6 class="card-title">Anexos</h6> 
-            <ul class="list-group">
-                <li class="list-group-item"><a href="{{ $conhecimento[0]->anexo }}" target="_blank">{{$conhecimento[0]->nomeanexo}}</a></li>
-            </ul>
-
-            </div>
-            </div>
             
+            @if($conhecimento[0]->nomeanexo)
+            <div class="card">
+                <div class="card-body">
+                <h6 class="card-title">Anexos</h6> 
+                <ul class="list-group">
+                    <li class="list-group-item"><a href="{{ $conhecimento[0]->anexo }}" target="_blank">{{$conhecimento[0]->nomeanexo}}</a></li>
+                </ul>
+            </div>
+            @endif
+
+           
         </div>
+            
     </div>
 </div>
 

@@ -65,6 +65,7 @@ class ConhecimentoController extends Controller
         $categorias = Categoria::all()->sortBy('id');
 
         return view('editarconhecimento', ['conhecimento' => $conhecimento], ['categorias' => $categorias]);
+        
     }
 
     public function update(Request $response, $id) 
