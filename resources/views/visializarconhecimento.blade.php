@@ -48,7 +48,7 @@
             <div class="card-body">
             <h6 class="card-title">Anexos</h6> 
             <ul class="list-group">
-                <li class="list-group-item"><a href="#">{{$conhecimento[0]->anexos}}</a></li>
+                <li class="list-group-item"><a href="{{ $conhecimento[0]->anexo }}" target="_blank">{{$conhecimento[0]->nomeanexo}}</a></li>
             </ul>
 
             </div>

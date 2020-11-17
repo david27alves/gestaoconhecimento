@@ -44,6 +44,8 @@ class ConhecimentoController extends Controller
 
         return back()->withErrors(['success' => 'Cadastrado com sucesso!']);
 
+       
+
     }
 
     public function show(Request $request, $id) 
@@ -52,6 +54,7 @@ class ConhecimentoController extends Controller
         $conhecimento = Conhecimento::with('categoria', 'user')->whereIn('id', (array)$id)->get();
 
         return view('visializarconhecimento', ['conhecimento' => $conhecimento]);
+        
 
     }
 
