@@ -8,6 +8,7 @@
     <div class="col-md-3">
         <div class="list-group">
             @foreach ($categorias as $categoria)
+                
             <a href="conhecimento/categoria/{{ $categoria->id }}" class="list-group-item list-group-item-action">{{ $categoria->descricao }}</a>
             
             @endforeach
@@ -27,11 +28,16 @@
                 <ul class="list-group list-group-flush">
                     @foreach ($conhecimentos as $conhecimento)
                         <li class="list-group-item"><a href="conhecimento/categoria/{{ $conhecimento->categoria->id }}" class="badge badge-success">{{$conhecimento->categoria->descricao}}</a> <a href="/conhecimento/{{$conhecimento->id}}">{{$conhecimento->titulo}}</a></li>
+                        
                     @endforeach
                 </ul>
 
             </div>
-        </div>        
+            </br>
+            {{$conhecimentos->links()}}
+        </div>   
+        
     </div>
+    
 </div>
 @endsection

@@ -40,3 +40,4 @@ Route::get('/consulta/conhecimentos', 'ConsultaConhecimentoController@index')->n
 
 Route::get('/conhecimento/categoria/{id}', 'ConhecimentoController@index');
 
+Route::get('/conhecimento/visualizar/{hash}', 'ConhecimentoShareController@index');

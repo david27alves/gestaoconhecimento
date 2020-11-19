@@ -23,10 +23,10 @@ class ConhecimentoController extends Controller
 
         $categs = Categoria::all()->sortBy('id');
         $CatSelecionada = DB::table('categorias')->whereIn('id', (array)$id)->get();
-        $conhecimentos = Conhecimento::with('categoria')->whereIn('id_categoria', (array)$id)->get();
+        $conhecimentos = Conhecimento::with('categoria')->whereIn('id_categoria', (array)$id)->paginate(10);
         
-        return view('conhecimentoporcategoria', ['categs' => $categs], ['cons' => $conhecimentos], ['CatSelec' => $CatSelecionada]);
-
+        return view('conhecimentoporcategoria', compact('categs', 'CatSelecionada', 'conhecimentos'));
+        
     }
 
     public function create() 
@@ -79,4 +79,5 @@ class ConhecimentoController extends Controller
         Conhecimento::find($id)->delete();
         return redirect('home');
     }
+
 }
