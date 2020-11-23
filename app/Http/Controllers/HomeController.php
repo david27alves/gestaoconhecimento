@@ -28,7 +28,7 @@ class HomeController extends Controller
     public function index()
     {
         $categorias = Categoria::all()->sortBy('id');
-        $conhecimentos = Conhecimento::with('categoria')->orderBy('id', 'DESC')->paginate(10);
+        $conhecimentos = Conhecimento::with('categoria')->orderBy('id', 'DESC')->paginate(20);
         
         return view('home', compact('categorias', 'conhecimentos'));
         //return $conhecimentos;

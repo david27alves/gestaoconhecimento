@@ -23,7 +23,7 @@ class ConhecimentoController extends Controller
 
         $categs = Categoria::all()->sortBy('id');
         $CatSelecionada = DB::table('categorias')->whereIn('id', (array)$id)->get();
-        $conhecimentos = Conhecimento::with('categoria')->whereIn('id_categoria', (array)$id)->paginate(10);
+        $conhecimentos = Conhecimento::with('categoria')->whereIn('id_categoria', (array)$id)->paginate(20);
         
         return view('conhecimentoporcategoria', compact('categs', 'CatSelecionada', 'conhecimentos'));
         
